@@ -1,0 +1,20 @@
+const GmailModel = require('../../models/gmail/GmailModel');
+
+
+function sendGmail(from, mailto, subject, text, html,CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN){
+    const mailOptions = {
+        from: `${from} <reports@zingley.com>`,
+        to: mailto,
+        subject,
+        text,
+        html
+    }
+
+    return GmailModel.sendMail(mailOptions, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN).then(send => {
+        return send;
+    }).catch(err => {return err});
+}
+
+module.exports ={
+    sendGmail: sendGmail
+}
