@@ -8,10 +8,16 @@
             "use": "@vercel/node"
         }
     ],
+    "functions": {
+        "routes/gmail.js": {
+            "memory": 256,
+            "maxDuration": 30
+        }
+    },
     "routes": [
         {
             "src": "/(.*)",
-            "dest": "app.js"
+            "dest": "server.js"
         },
         {
             "src": "/gmail/(.*)",
