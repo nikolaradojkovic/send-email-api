@@ -10,7 +10,7 @@ app.use(cors({
     origin: 'http://localhost:3000'
 }));
 
-//const gmail = require("./routes/gmail");
+const gmail = require("./routes/gmail");
 const GmailController = require("./controllers/gmail/GmailController");
 
 // body parser error catcher
@@ -26,12 +26,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.json());
 
-app.post('/gmail', (req, res) => {
-    let {from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN} = req.body;
-    GmailController.sendGmail(from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN).then(result => {
-        res.json(result);
-    })
-});
+app.use('/gmail', gmail);
 
 app.get("/", (req, res) =>{
     res.send("<div id='click'><h5>Send Email API</h5></div>")
