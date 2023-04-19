@@ -6,9 +6,9 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json({ limit: '10mb' }))
 //TODO delete when finished
 const cors = require('cors');
-app.use(cors({
+/*app.use(cors({
     origin: 'http://localhost:3000'
-}));
+}));*/
 
 const gmail = require("./routes/gmail");
 const GmailController = require("./controllers/gmail/GmailController");
