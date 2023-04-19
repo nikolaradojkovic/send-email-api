@@ -11,10 +11,10 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json({ limit: '10mb' }))
 //TODO delete when finished
-/*const cors = require('cors');
+const cors = require('cors');
 app.use(cors({
     origin: '*'
-}));*/
+}));
 
 const gmail = require("./routes/gmail");
 const GmailController = require("./controllers/gmail/GmailController");
@@ -49,7 +49,8 @@ const httpsOptions ={
     key: fs.readFileSync(path.join(__dirname, 'ssl', 'key.pem')),
 }
 
-https.createServer(httpsOptions, app)
+const sslServer = https.createServer(httpsOptions, app);
+sslServer
     .listen(8010, function () {
         console.log('Server started on port 8010');
     })
