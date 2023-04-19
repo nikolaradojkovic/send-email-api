@@ -55,4 +55,4 @@ sslServer
         console.log('Server started on port 8010');
     })
 
-
+module.exports = app;
