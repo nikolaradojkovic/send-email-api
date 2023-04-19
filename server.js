@@ -1,6 +1,6 @@
-/*const https = require("https");
+const https = require("https");
 const fs = require('fs');
-const path = require('path');*/
+const path = require('path');
 
 let express = require('express');
 const axios = require("axios");
@@ -11,10 +11,10 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser.json({ limit: '10mb' }))
 //TODO delete when finished
-const cors = require('cors');
+/*const cors = require('cors');
 app.use(cors({
     origin: '*'
-}));
+}));*/
 
 const gmail = require("./routes/gmail");
 const GmailController = require("./controllers/gmail/GmailController");
@@ -40,11 +40,11 @@ app.get("/", (req, res) =>{
 
 
 
-app.listen(8010, function () {
+/*app.listen(8010, function () {
     console.log('Server started on port 8010');
-});
+});*/
 
-/*const httpsOptions ={
+const httpsOptions ={
     cert: fs.readFileSync(path.join(__dirname, 'ssl', 'server.crt')),
     key: fs.readFileSync(path.join(__dirname, 'ssl', 'key.pem')),
 }
@@ -52,5 +52,6 @@ app.listen(8010, function () {
 https.createServer(httpsOptions, app)
     .listen(8010, function () {
         console.log('Server started on port 8010');
-    })*/
+    })
+
 
