@@ -1,7 +1,13 @@
+const https = require("https");
+const fs = require('fs');
+const path = require('path');
+
 let express = require('express');
 const axios = require("axios");
 let app = express();
 const bodyParser = require('body-parser');
+
+
 
 app.use(bodyParser.json({ limit: '10mb' }))
 //TODO delete when finished
@@ -34,7 +40,17 @@ app.get("/", (req, res) =>{
 
 
 
-app.listen(8010, function () {
+/*app.listen(8010, function () {
     console.log('Server started on port 8010');
-});
+});*/
+
+const httpsOptions ={
+    cert: fs.readFileSync(path.join(__dirname, 'ssl', 'server.crt')),
+   key: fs.readFileSync(path.join(__dirname, 'ssl', 'key.pem')),
+}
+
+https.createServer(httpsOptions, app)
+    .listen(8010, function () {
+        console.log('Server started on port 8010');
+    })
 
