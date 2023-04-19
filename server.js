@@ -1,6 +1,6 @@
-const https = require("https");
+/*const https = require("https");
 const fs = require('fs');
-const path = require('path');
+const path = require('path');*/
 
 let express = require('express');
 const axios = require("axios");
@@ -40,11 +40,11 @@ app.get("/", (req, res) =>{
 
 
 
-/*app.listen(8010, function () {
+app.listen(8010, function () {
     console.log('Server started on port 8010');
-});*/
+});
 
-const httpsOptions ={
+/*const httpsOptions ={
     cert: fs.readFileSync(path.join(__dirname, 'ssl', 'server.crt')),
     key: fs.readFileSync(path.join(__dirname, 'ssl', 'key.pem')),
 }
@@ -55,4 +55,4 @@ sslServer
         console.log('Server started on port 8010');
     })
 
-module.exports = app;
+module.exports = app;*/
