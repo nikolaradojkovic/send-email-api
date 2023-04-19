@@ -13,9 +13,16 @@ router.use(function (req, res, next) {
 router
     .route("/")
     .get((req, res) => {
-        res.json({error : "GET not found"});
+        //res.json({error : "GET not found"});
+        console.log(req.body)
+        let {from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN} = req.body;
+        res.json({from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN})
+        /*GmailController.sendGmail(from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN).then(result => {
+            res.json(result);
+        })*/
     })
     .post(async (req, res) => {
+        console.log(req.body)
         let {from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN} = req.body;
         res.json({from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN})
         /*GmailController.sendGmail(from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN).then(result => {
