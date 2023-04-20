@@ -16,9 +16,8 @@ router
         res.json({error : "GET not found"});
     })
     .post(async (req, res) => {
-        let {from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN} = req.body;
-        //res.json({from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN})
-        GmailController.sendGmail(from, mailto, subject, text, html, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN).then(result => {
+        let {from, mailto, subject, text, html, user,  CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN} = req.body;
+        GmailController.sendGmail(from, mailto, subject, text, html, user, CLIENT_ID, CLIENT_SECRET, REDIRECT_URI, REFRESH_TOKEN).then(result => {
             res.json(result);
         })
     })
