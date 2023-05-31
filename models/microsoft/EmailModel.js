@@ -10,10 +10,12 @@ let headers= {
 function sendNewEmail (user_id, client_id, client_secret, tenant_id, body) {
     return  auth.getToken( client_id, client_secret, tenant_id).then(token => {
         headers.Authorization = `Bearer ${token.access_token}`;
+        //console.log({token})
 
         return axios.post(`https://graph.microsoft.com/v1.0/users/${user_id}/sendMail`, body, { headers }
         ).then(function (response) {
-            return response.data;
+            //console.log(response)
+            return {data: response.data, status: response.status};
         }).catch(function (error) {
             return {e: 'send email error', error};
         })

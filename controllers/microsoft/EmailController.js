@@ -15,20 +15,6 @@ function sendEmail(user_id, client_id, client_secret, tenant_id, mailto, subject
                         "address" : mailto
                     }
                 }
-            ] ,
-            "ccRecipients": [
-                {
-                    "emailAddress" : {
-                        "address" : mailto
-                    }
-                }
-            ] ,
-            "bccRecipients": [
-                {
-                    "emailAddress" : {
-                        "address" : mailto
-                    }
-                }
             ]
         }
     }
