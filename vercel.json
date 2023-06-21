@@ -16,6 +16,14 @@
         {
             "src": "/gmail/(.*)",
             "dest": "routes/gmail.js"
+        },
+        {
+            "src": "/microsoft/(.*)",
+            "dest": "routes/microsoft.js"
+        },
+        {
+            "src": "/sendgrid/(.*)",
+            "dest": "routes/sendgrid.js"
         }
     ]
 

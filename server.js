@@ -14,6 +14,7 @@ app.use(cors({
 
 const gmail = require("./routes/gmail");
 const microsoft = require("./routes/microsoft");
+const sendgrid = require("./routes/sendgrid");
 
 // body parser error catcher
 app.use((err, req, res, next) => {
@@ -30,6 +31,7 @@ app.use(express.json());
 
 app.use('/gmail', gmail);
 app.use('/microsoft', microsoft);
+app.use('/sendgrid', sendgrid);
 
 app.get("/", (req, res) =>{
     res.send("<div id='click'><h5>Send Email API</h5></div>")
